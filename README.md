@@ -54,7 +54,12 @@ Just load and use the menu to select between the available sources.
 Simply load the index.html file by clicking [https://rudimusmaximus.github.io/FENDp4/](https://rudimusmaximus.github.io/FENDp4/)
 
 ## When you select a source
-Selecting a source gives you the current feed of article summaries; click on one to go to the article.
+
+Click on the menu bars to see the selection of sources.
+
+With the menu open, click on a source to change the list of articles.
+
+Click on any article title to visit it's web page.
 
 # My Notes Completing This
 
@@ -62,9 +67,11 @@ Selecting a source gives you the current feed of article summaries; click on one
 
 | Area | Comments |
 | :--- | :--- |
-| 1. TODO | a. TODO. b. TODO c. TODO. |
-| 2. TODO | a. TODO. b. TODO c. TODO. |
-| 3. TODO | a. TODO. b. TODO c. TODO. |
+| 1. Included vs installed via npm | a. Research pros/cons of including the library in the code base. |
+| 2. Gulp and eslint | a. Research the install of google style via cli and what is applied when specified via .eslintrc and order of precedence against .editorconfig file. |
+| 3. Continuous Integration | a. research suggested frameworks. |
+| 4. pre-commit hooks | a. research as well. |
+| 5. package.json | a. best practice about package-lock.json which i came across when learning gulp with sass and eslint and jasmine testing. Not an issue on this p4 as version of jasmine was included in the repo files. |
 
 ## Assumptions required to solve the problem
 The following assumptions were made by evaluation the code and all given
@@ -75,7 +82,6 @@ instructions:
  - gulp is not required as the course has setup the starting files to include a
  jasmine library
  
- - TODO
  
 ## Work Flow
 I followed git commit guidelines, a 'Git Flow' branching model committing into temporary feature branches that are merged into develop until ready to test and pushed to GitHub hosting of a develop and master branch. 
