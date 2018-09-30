@@ -1,0 +1,10 @@
+{
+  "extends": ["eslint:recommended", "google"],
+  "env": { "es6": true },
+  #see https://eslint.org/docs/user-guide/configuring#specifying-parser-options
+  #also see top of file as comment, in config files or with command line flags
+  "rules": {
+    # // Additional, per-project rules...like turning error to warning
+    # https://eslint.org/docs/user-guide/configuring#configuring-rules
+  }
+}

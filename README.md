@@ -46,3 +46,46 @@ Review the Feed Reader Testing [Project Rubric](https://review.udacity.com/#!/pr
 19. Implement error handling for undefined variables and out-of-bound array access.
 20. When complete - all of your tests should pass. 
 21. Write a README file detailing all steps required to successfully run the application. If you have added additional tests (for Udacious Test Coverage),  provide documentation for what these future features are and what the tests are checking for.
+
+# How to use the feed reader
+Just load and use the menu to select between the available sources.
+
+## To Load
+Simply load the index.html file by clicking [https://rudimusmaximus.github.io/FENDp4/](https://rudimusmaximus.github.io/FENDp4/)
+
+## When you select a source
+Selecting a source gives you the current feed of article summaries; click on one to go to the article.
+
+# My Notes Completing This
+
+## Lessons learned:  
+
+| Area | Comments |
+| :--- | :--- |
+| 1. TODO | a. TODO. b. TODO c. TODO. |
+| 2. TODO | a. TODO. b. TODO c. TODO. |
+| 3. TODO | a. TODO. b. TODO c. TODO. |
+
+## Assumptions required to solve the problem
+The following assumptions were made by evaluation the code and all given
+instructions:
+
+ - most of our solution can be done in `jasmine/spec/feedreader.js`
+
+ - gulp is not required as the course has setup the starting files to include a
+ jasmine library
+ 
+ - TODO
+ 
+## Work Flow
+I followed git commit guidelines, a 'Git Flow' branching model committing into temporary feature branches that are merged into develop until ready to test and pushed to GitHub hosting of a develop and master branch. 
+The repo was created using the starting repo as a baseline rather than fork, so I could have issues later. I used Atom and GitKraken with a Chrome browser for testing.
+
+My focus is to catch up in the course, so I'm going to try to stick only to the requirements.
+
+Now to finish in time! Thanks for reading this.
+
+See develop for commit history with git commit style followed. Releases made to master and develop with tags on master following [Semantic Versioning 2.0.0](https://semver.org/).
+
+## Resources used to complete this work
+TODO
