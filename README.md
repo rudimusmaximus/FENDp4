@@ -53,6 +53,9 @@ Just load and use the menu to select between the available sources.
 ## To Load
 Simply load the index.html file by clicking [https://rudimusmaximus.github.io/FENDp4/](https://rudimusmaximus.github.io/FENDp4/)
 
+If your browser blocks loading, you may have to click on the 'load unsafe scripts link' to see the page.
+![Screen Shot 2018-09-29 at 10.52.56 PM.png](https://images.zenhubusercontent.com/59518c8261b4ca3b0a726039/3a6586d2-3d61-4cc2-a793-e55cf692e322)
+
 ## When you select a source
 
 Click on the menu bars to see the selection of sources.
