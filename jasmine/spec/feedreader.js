@@ -1,3 +1,4 @@
+/* eslint-env browser */
 /* global $, describe, it, expect, allFeeds */
 
 /* feedreader.js
@@ -64,6 +65,8 @@ $(function() {
    * hiding/showing of the menu element.
    */
     it('is hidden by default', function() {
+      expect(document.querySelector('body')
+          .classList.contains('menu-hidden')).toBe(true);
     });
 
     /**
@@ -73,6 +76,12 @@ $(function() {
    * clicked and does it hide when clicked again.
    */
     it('visibility toggles on click', function() {
+      document.querySelector('.menu-icon-link').click();
+      expect(document.querySelector('body').classList.contains('menu-hidden'))
+          .toBe(false);
+      document.querySelector('.menu-icon-link').click();
+      expect(document.querySelector('body').classList.contains('menu-hidden'))
+          .toBe(true);
     });
   });// end 'The menu' test suite
 
