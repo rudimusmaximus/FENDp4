@@ -1,4 +1,5 @@
-/* global $, describe, it, expect, allFeeds */
+/* eslint-env browser */
+/* global $, describe, it, expect, allFeeds, beforeEach, loadFeed */
 
 /* feedreader.js
  *
@@ -64,6 +65,8 @@ $(function() {
    * hiding/showing of the menu element.
    */
     it('is hidden by default', function() {
+      expect(document.querySelector('body')
+          .classList.contains('menu-hidden')).toBe(true);
     });
 
     /**
@@ -73,6 +76,12 @@ $(function() {
    * clicked and does it hide when clicked again.
    */
     it('visibility toggles on click', function() {
+      document.querySelector('.menu-icon-link').click();
+      expect(document.querySelector('body').classList.contains('menu-hidden'))
+          .toBe(false);
+      document.querySelector('.menu-icon-link').click();
+      expect(document.querySelector('body').classList.contains('menu-hidden'))
+          .toBe(true);
     });
   });// end 'The menu' test suite
 
@@ -80,6 +89,9 @@ $(function() {
    * @description A new test suite named "Initial Entries"
    */
   describe('Initial Entries', function() {
+    beforeEach(function(done) {
+      loadFeed(0, done);
+    });
     /**
    * @description A test that ensures when the loadFeed
    * function is called and completes its work, there is at least
@@ -88,6 +100,7 @@ $(function() {
    * the use of Jasmine's beforeEach and asynchronous done() function.
    */
     it('there is at least one', function() {
+      expect(document.querySelector('.feed').children.length > 0).toBe(true);
     });
   });// end 'Initial Entries' test suite
 
@@ -95,12 +108,27 @@ $(function() {
    * @description A new test suite named "New Feed Selection"
    */
   describe('New Feed Selection', function() {
-  /**
+    const feed = document.querySelector('.feed');
+    const firstFeed = [];
+    beforeEach(function(done) {
+      loadFeed(0);
+      Array.from(feed.children).forEach(function(entry) {
+        firstFeed.push(entry.innerText);
+      });
+      loadFeed(1, done);
+    });
+
+    /**
    * @description A test that ensures when a new feed is loaded
    * by the loadFeed function that the content actually changes.
    * Remember, loadFeed() is asynchronous.
    */
     it('results in content changing', function() {
+      Array.from(feed.children).forEach(function(entry, index) {
+        // console.log('this entry: ', entry.innerText, 'first feed: ', firstFeed[index], 'matching? ',
+        //     entry.innerText === firstFeed[index]);
+        expect(entry.innerText === firstFeed[index]).toBe(false);
+      });
     });
   });// end 'New Feed Selection' test suite
 }());
