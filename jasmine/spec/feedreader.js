@@ -100,7 +100,9 @@ $(function() {
    * the use of Jasmine's beforeEach and asynchronous done() function.
    */
     it('there is at least one', function() {
-      expect(document.querySelector('.feed').children.length > 0).toBe(true);
+      expect(document.querySelector('.feed')
+          .firstElementChild
+          .firstElementChild.classList.contains('entry')).toBe(true);
     });
   });// end 'Initial Entries' test suite
 
@@ -125,8 +127,6 @@ $(function() {
    */
     it('results in content changing', function() {
       Array.from(feed.children).forEach(function(entry, index) {
-        // console.log('this entry: ', entry.innerText, 'first feed: ', firstFeed[index], 'matching? ',
-        //     entry.innerText === firstFeed[index]);
         expect(entry.innerText === firstFeed[index]).toBe(false);
       });
     });
