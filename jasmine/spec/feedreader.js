@@ -59,22 +59,22 @@ $(function() {
    */
   describe('The menu', function() {
     /**
-   * @description A test that ensures the menu element is
-   * hidden by default. You'll have to analyze the HTML and
-   * the CSS to determine how we're performing the
-   * hiding/showing of the menu element.
-   */
+    * @description A test that ensures the menu element is
+    * hidden by default. You'll have to analyze the HTML and
+    * the CSS to determine how we're performing the
+    * hiding/showing of the menu element.
+    */
     it('is hidden by default', function() {
       expect(document.querySelector('body')
           .classList.contains('menu-hidden')).toBe(true);
     });
 
     /**
-   * @description A test that ensures the menu changes
-   * visibility when the menu icon is clicked. This test
-   * should have two expectations: does the menu display when
-   * clicked and does it hide when clicked again.
-   */
+    * @description A test that ensures the menu changes
+    * visibility when the menu icon is clicked. This test
+    * should have two expectations: does the menu display when
+    * clicked and does it hide when clicked again.
+    */
     it('visibility toggles on click', function() {
       document.querySelector('.menu-icon-link').click();
       expect(document.querySelector('body').classList.contains('menu-hidden'))
@@ -93,16 +93,15 @@ $(function() {
       loadFeed(0, done);
     });
     /**
-   * @description A test that ensures when the loadFeed
-   * function is called and completes its work, there is at least
-   * a single .entry element within the .feed container.
-   * Remember, loadFeed() is asynchronous so this test will require
-   * the use of Jasmine's beforeEach and asynchronous done() function.
-   */
+    * @description A test that ensures when the loadFeed
+    * function is called and completes its work, there is at least
+    * a single .entry element within the .feed container.
+    * Remember, loadFeed() is asynchronous so this test will require
+    * the use of Jasmine's beforeEach and asynchronous done() function.
+    */
     it('there is at least one', function() {
       expect(document.querySelector('.feed')
-          .firstElementChild
-          .firstElementChild.classList.contains('entry')).toBe(true);
+          .getElementsByClassName('entry').length).toBeGreaterThan(0);
     });
   });// end 'Initial Entries' test suite
 
@@ -110,25 +109,28 @@ $(function() {
    * @description A new test suite named "New Feed Selection"
    */
   describe('New Feed Selection', function() {
-    const feed = document.querySelector('.feed');
-    const firstFeed = [];
+    let initialFeed; let finalFeed;
     beforeEach(function(done) {
-      loadFeed(0);
-      Array.from(feed.children).forEach(function(entry) {
-        firstFeed.push(entry.innerText);
+      loadFeed(0, function() {
+        initialFeed = document.querySelector('.feed')
+            .getElementsByClassName('entry')[0].innerText;
+
+        loadFeed(1, function() {
+          finalFeed = document.querySelector('.feed')
+              .getElementsByClassName('entry')[0].innerText;
+
+          done(); // call done when variables are fed and tests can begin
+        });
       });
-      loadFeed(1, done);
     });
 
     /**
-   * @description A test that ensures when a new feed is loaded
-   * by the loadFeed function that the content actually changes.
-   * Remember, loadFeed() is asynchronous.
-   */
+    * @description A test that ensures when a new feed is loaded
+    * by the loadFeed function that the content actually changes.
+    * Remember, loadFeed() is asynchronous.
+    */
     it('results in content changing', function() {
-      Array.from(feed.children).forEach(function(entry, index) {
-        expect(entry.innerText === firstFeed[index]).toBe(false);
-      });
+      expect(initialFeed).not.toBe(finalFeed);
     });
   });// end 'New Feed Selection' test suite
 }());
