@@ -97,5 +97,6 @@ Now to finish in time! Thanks for reading this.
 See develop for commit history with git commit style followed. Releases made to master and develop with tags on master following [Semantic Versioning 2.0.0](https://semver.org/).
 
 ## Resources used to complete this work
+I watched [Udacity FEND P4 Walkthrough by Ryan Boris](https://www.youtube.com/watch?v=7kOBXPbDmyw&feature=youtu.be)
 I read [Mathew Cranford's Feed Reader  Walkthrough](https://matthewcranford.com/feed-reader-walkthrough-part-1-starter-code/) series parts 1 - 4 whenever I got stuck.
-I especially needed help on the Asynchronous Tests from the article.
+Also, considered using an approach from https://jasmine.github.io/2.0/introduction.html for adjusting timeout interval in Asynchronous Support, but it was not necessary.
